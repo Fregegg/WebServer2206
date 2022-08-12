@@ -9,6 +9,7 @@
         <module name="V3.0" />
         <module name="V2.0" />
         <module name="V1.0" />
+        <module name="V4.0" />
       </profile>
     </annotationProcessing>
   </component>
