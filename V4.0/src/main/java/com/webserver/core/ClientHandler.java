@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class ClientHandler implements Runnable {
     private Socket socket;
@@ -17,33 +18,35 @@ public class ClientHandler implements Runnable {
     @Override
     public void run() {
         try {
+            //输出请求行
             String line = readLine();
             System.out.println("请求行:" + line);
+
+            //拆分请求行并输出
             String[] data = line.split("\\s");
             String method = data[0];
             String uri = data[1];
             String protocol = data[2];
             System.out.println("请求方式：" + method + '\n' + "抽象路径：" + uri + '\n' + "协议版本：" + protocol);
-            //读取
+
+            //读取请求行和消息头
             while (true) {
                 line = readLine();
                 if (line.isEmpty()){
                     break;
                 }
+                String[] datas = line.split(": ");
+                String key = datas[0];
+                String value = datas[1];
+                headers.put(key, value);
                 System.out.println(line);
             }
-            //把消息头根据： 拆成key和value
-            line=readLine();
-            String key;
-            String value;
+            //按key和value输出消息头
+            Set<Map.Entry<String,String>>headersEntry = headers.entrySet();
+            for (Map.Entry<String, String> e : headersEntry) {
+                System.out.println("名字： "+e.getKey()+'\t'+"值： "+e.getValue());
+            }
 
-
-
-
-
-
-
-            System.out.println("headers"+headers);
         } catch (IOException e) {
             e.printStackTrace();
         }
