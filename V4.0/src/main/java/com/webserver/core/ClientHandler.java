@@ -41,6 +41,7 @@ public class ClientHandler implements Runnable {
                 headers.put(key, value);
                 System.out.println(line);
             }
+
             //按key和value输出消息头
             Set<Map.Entry<String,String>>headersEntry = headers.entrySet();
             for (Map.Entry<String, String> e : headersEntry) {
