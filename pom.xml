@@ -13,6 +13,10 @@
         <module>V2.0</module>
         <module>V3.0</module>
         <module>V4.0</module>
+        <module>V5.0</module>
+        <module>V6.0</module>
+        <module>V7.0</module>
+        <module>V7.1</module>
     </modules>
 
     <properties>

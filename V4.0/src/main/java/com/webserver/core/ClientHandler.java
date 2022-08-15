@@ -6,7 +6,15 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
+/**
+ * 与客户端完成一次HTTP的交互
+ * 按照HTTP协议要求，与客户端完成一次交互流程为一问一答
+ * 因此，这里分为三步完成该工作:
+ * 1:解析请求  目的:将浏览器发送的请求内容读取并整理
+ * 2:处理请求  目的:根据浏览器的请求进行对应的处理工作
+ * 3:发送响应  目的:将服务端的处理结果回馈给浏览器
+ *
+ */
 public class ClientHandler implements Runnable {
     private Socket socket;
     private Map<String,String>headers = new HashMap<>();
@@ -29,16 +37,14 @@ public class ClientHandler implements Runnable {
             String protocol = data[2];
             System.out.println("请求方式：" + method + '\n' + "抽象路径：" + uri + '\n' + "协议版本：" + protocol);
 
-            //读取请求行和消息头
+            //读取并输出消息头
             while (true) {
                 line = readLine();
                 if (line.isEmpty()){
                     break;
                 }
-                String[] datas = line.split(": ");
-                String key = datas[0];
-                String value = datas[1];
-                headers.put(key, value);
+                String[] datas = line.split(":\\s");
+                headers.put(datas[0], datas[1]);
                 System.out.println(line);
             }
 
@@ -68,6 +74,7 @@ public class ClientHandler implements Runnable {
             pre = cur;
         }
         return builder.toString().trim();
+
     }
 
 }

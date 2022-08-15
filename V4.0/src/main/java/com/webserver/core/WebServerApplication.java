@@ -3,7 +3,10 @@ package com.webserver.core;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-
+/**
+ * WebServer web容器
+ * 用于实现Tomcat基本功能。
+ */
 public class WebServerApplication {
     private ServerSocket serverSocket;
 

@@ -58,7 +58,7 @@ Sec-Fetch-Site: none(CRLF)
 Sec-Fetch-Mode: navigate(CRLF)
 Accept-Encoding: gzip, deflate, br(CRLF)
 Accept-Language: zh-CN,zh;q=0.9(CRLF)(CRLF)
-
+这里是一行空白行
 
 3:消息正文
 消息正文是2进制数据，通常是用户上传的信息，比如:在页面输入的注册信息，上传的

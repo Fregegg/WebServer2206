@@ -3,10 +3,7 @@ package com.webserver.core;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-/**
- * WebServer web容器
- * 用于实现Tomcat基本功能。
- */
+
 public class WebServerApplication {
     private ServerSocket serverSocket;
 
@@ -21,11 +18,13 @@ public class WebServerApplication {
 
     public void start(){
         try {
-            Socket socket = serverSocket.accept();
-            System.out.println("一个客户端连接了");
-            ClientHandler handler = new ClientHandler(socket);
-            Thread thread = new Thread(handler);
-            thread.start();
+            while(true) {
+                Socket socket = serverSocket.accept();
+                System.out.println("一个客户端连接了");
+                ClientHandler handler = new ClientHandler(socket);
+                Thread thread = new Thread(handler);
+                thread.start();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
