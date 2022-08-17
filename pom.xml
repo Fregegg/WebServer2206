@@ -17,6 +17,17 @@
         <module>V6.0</module>
         <module>V7.0</module>
         <module>V7.1</module>
+        <module>V8.0</module>
+        <module>V9.0</module>
+        <module>V10.0</module>
+        <module>V11.0</module>
+        <module>V12.0</module>
+        <module>V13.0</module>
+        <module>V13.1</module>
+        <module>V14.0</module>
+        <module>V15.0</module>
+        <module>V15.1</module>
+        <module>V16.0</module>
     </modules>
 
     <properties>
